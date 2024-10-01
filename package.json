@@ -1,7 +1,7 @@
 {
-  "name": "dynamic-theme",
+  "name": "@srjuggernaut/emotion-dynamic-theme",
   "module": "src/index.ts",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "files": [
     "dist/**/*",

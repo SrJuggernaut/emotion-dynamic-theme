@@ -1,15 +1,34 @@
-# dynamic-theme
+# @srjuggernaut/emotion-dynamic-theme
 
-To install dependencies:
+An [emotion](https://emotion.sh/) theme to be used in simple applications. Uses [Radix Colors](https://www.radix-ui.com/colors) for colors.
 
-```bash
-bun install
-```
+## Installation
 
-To run:
 
 ```bash
-bun run src/index.ts
+npm install @srjuggernaut/emotion-dynamic-theme
 ```
 
-This project was created using `bun init` in bun v1.1.27. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+```bash
+bun add @srjuggernaut/emotion-dynamic-theme
+```
+
+
+## Usage
+
+```ts
+import { createTheme } from '@srjuggernaut/emotion-dynamic-theme'
+
+const theme = createTheme()
+
+export default theme
+```
+
+```ts
+// Any d.ts file\
+import { DynamicTheme } from '@srjuggernaut/emotion-dynamic-theme';
+
+declare module '@emotion/react' {
+  export type Theme = DynamicTheme
+}
+```
