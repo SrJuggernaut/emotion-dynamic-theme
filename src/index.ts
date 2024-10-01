@@ -2,12 +2,15 @@ import getDarkRadixColors from './colors/getDarkRadixColors'
 import getDynamicRadixColors from './colors/getDynamicRadixColors'
 import getLightRadixColors from './colors/getLightRadixColors'
 import type { RadixBasicColor, RadixNeutralColor, RadixViableDangerColor, RadixViableInfoColor, RadixViableSuccessColor, RadixViableWarningColor } from './constants'
+import getSpacing from './spacing/getSpacing'
 import type { DynamicThemeBreakpoints } from './types/breakpoints'
 import type { DynamicThemeColors } from './types/colors'
+import type { DynamicThemeSpacing } from './types/spacing'
 
 export interface DynamicTheme {
   colors: DynamicThemeColors
   breakpoints: DynamicThemeBreakpoints
+  spacing: DynamicThemeSpacing
 }
 
 export interface CreateThemeArgsSemanticColors {
@@ -23,10 +26,11 @@ export interface CreateThemeArgs {
   neutralColor?: RadixNeutralColor
   semanticColors?: CreateThemeArgsSemanticColors
   breakpoints?: DynamicThemeBreakpoints
+  spacing?: number
 }
 
 export const createTheme = (args: CreateThemeArgs): DynamicTheme => {
-  const { mode = 'light', neutralColor = 'gray', semanticColors, breakpoints } = args
+  const { mode = 'light', neutralColor = 'gray', semanticColors, breakpoints, spacing = 8 } = args
 
   const { primary = 'blue', success = 'green', info = 'blue', warning = 'yellow', danger = 'red' } = semanticColors ?? {}
   const { xs = 0, sm = 576, md = 768, lg = 992, xl = 1200, xxl = 1400 } = breakpoints ?? {}
@@ -47,6 +51,7 @@ export const createTheme = (args: CreateThemeArgs): DynamicTheme => {
       danger: DynamicRadixColors[danger as RadixViableDangerColor],
       neutral: DynamicRadixColors[neutralColor as RadixNeutralColor]
     },
-    breakpoints: { xs, sm, md, lg, xl, xxl }
+    breakpoints: { xs, sm, md, lg, xl, xxl },
+    spacing: getSpacing(spacing)
   }
 }
