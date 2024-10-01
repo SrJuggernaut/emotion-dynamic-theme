@@ -1,6 +1,6 @@
 import * as RadixColors from '@radix-ui/colors'
-import type { LightRadixColors, ThemeColor } from '../'
 import { RADIX_REQUIRE_DARK_FOREGROUND, type RadixRequireDarkForeground } from '../constants'
+import type { LightRadixColors, ThemeColor } from '../types/colors'
 
 export const lightColorsRegex = new RegExp(/^(?!default$)([a-z]*?)$/gm)
 
